@@ -792,12 +792,11 @@ if action == "📎 Déposer un rapport d'observation":
         with open(filename_temp, "wb") as f:
             f.write(uploaded_file.getbuffer())
 
-        url_partage = upload_to_drive(filename_temp, uploaded_file.name)
 
         os.remove(filename_temp)
 
         # Uploader sur Drive
-        url_partage = upload_to_drive("temp_upload.pdf", uploaded_file.name)
+        url_partage = upload_to_drive("temp_upload.pdf", uploaded_file.name, parent_folder_id=folder_id)
 
         # Sauvegarder dans l’arbitre
         rapports = json.loads(a.get("Rapports", "[]"))

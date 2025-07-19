@@ -782,8 +782,6 @@ if action == "📎 Déposer un rapport d'observation":
     with st.form("upload_rapport_form"):
         nom_sel = st.selectbox("👤 Sélectionner un arbitre", [""] + list(arbitres_dict.keys()))
         uploaded_file = st.file_uploader("📄 Déposer un rapport (PDF, Word...)", type=["pdf", "docx", "doc"])
-        url_partage = upload_to_drive("temp_upload.pdf", uploaded_file.name, parent_folder_id=folder_id)
-
         submit = st.form_submit_button("✅ Enregistrer le rapport")
 
     if submit and nom_sel and uploaded_file:
